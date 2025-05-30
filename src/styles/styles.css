@@ -1,0 +1,184 @@
+/* styles.css */
+
+/* 1. Reset de base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* fond full‐screen */
+body {
+  margin: 0;
+  padding: 0;
+  background: url('src/assets/images/background.webp') no-repeat center center/cover;
+  font-family: 'Roboto', sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* 4. Header */
+header {
+  padding: 1rem;
+  background: #4B0082; /* indigo */
+  color: white;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif; /* Montserrat pour les titres */
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;  /* nécessaire pour l’overlay */
+  padding: 0;
+}
+
+/* 6. Grille de rouleaux */
+.reels {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: none;
+}
+.reel-wrapper {
+  width: 90%;
+  height: auto;
+}
+.reel-cell {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reel-cell img {
+    width: 100%;
+  height: 100%;
+  object-fit: cover; /* garde les proportions */
+}
+.mute-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.mute-button:active {
+  transform: scale(0.95);
+}
+
+/* 7. Section de contrôles */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+.spin-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6b21a8, #9333ea);
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+}
+
+.spin-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.info-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+.info-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+/* 8. Footer */
+footer {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif;
+}
+
+.flash {
+  animation: flashAnim 0.3s ease-out;
+}
+@keyframes flashAnim {
+  from { box-shadow: 0 0 0 rgba(255,215,0,0); }
+  to   { box-shadow: 0 0 20px rgba(255,215,0,0.8); }
+}
+
+.win-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  pointer-events: none;
+  z-index: 10;
+}
+.win-text {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Auto-Spin control */
+.auto-spin-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.auto-spin-control input[type="number"].interval-input {
+  width: 60px;
+  padding: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+/* Mute button position already in header… */
+/* Les autres styles (spin-button, info-box, etc.) restent inchangés */
